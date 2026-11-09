@@ -1,158 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexus Global Tools - Free Online Utilities</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-[#1e222b] text-slate-200 min-h-screen flex flex-col font-sans selection:bg-blue-600 selection:text-white">
-
-  <!-- Header -->
-  <header class="border-b border-slate-700/60 bg-[#171a21]/90 backdrop-blur-md sticky top-0 z-50 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-          <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
-        </div>
-        <span class="text-xl font-bold tracking-wide text-white">Nexus Global <span class="text-blue-400">Tools</span></span>
-      </div>
-
-      <!-- Navigation Links to other tools -->
-      <div class="flex items-center space-x-4 text-xs font-medium">
-        <a href="https://calculator.nexusglobalit.org" target="_blank" class="text-blue-400 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg transition border border-slate-700">
-          <i class="fa-solid fa-calculator mr-1"></i> Calculator
-        </a>
-        <a href="https://web.nexusglobalit.org" target="_blank" class="text-blue-400 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg transition border border-slate-700">
-          <i class="fa-solid fa-globe mr-1"></i> Web Portal
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Container -->
-  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full relative z-10">
-    
-    <!-- Tab Navigation -->
-    <div class="flex border-b border-slate-700/60 mb-8 overflow-x-auto gap-2">
-      <button onclick="switchTab('json')" id="tab-json" class="tab-btn active-tab px-5 py-3 font-medium text-sm transition-all duration-200 border-b-2 border-blue-500 text-blue-400 flex items-center space-x-2 bg-slate-800/50 rounded-t-lg">
-        <i class="fa-solid fa-code"></i><span>JSON Formatter</span>
-      </button>
-      <button onclick="switchTab('counter')" id="tab-counter" class="tab-btn px-5 py-3 font-medium text-sm transition-all duration-200 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2 rounded-t-lg">
-        <i class="fa-solid fa-pen-nib"></i><span>Word Counter</span>
-      </button>
-      <button onclick="switchTab('password')" id="tab-password" class="tab-btn px-5 py-3 font-medium text-sm transition-all duration-200 border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center space-x-2 rounded-t-lg">
-        <i class="fa-solid fa-key"></i><span>Password Generator</span>
-      </button>
-    </div>
-
-    <!-- TOOL 1: JSON Formatter -->
-    <section id="tool-json" class="tool-content space-y-4">
-      <div class="flex items-center justify-between">
-        <h2 class="text-base font-semibold text-slate-200 flex items-center space-x-2">
-          <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-          <span>JSON Formatter & Validator</span>
-        </h2>
-        <div class="space-x-2">
-          <button onclick="formatJSON()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-4 py-2 rounded-lg font-medium transition shadow-lg shadow-blue-600/20 active:scale-95">Format JSON</button>
-          <button onclick="clearJSON()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs px-4 py-2 rounded-lg font-medium transition border border-slate-700">Clear</button>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="block text-xs font-medium text-slate-400 mb-2">Input Raw JSON</label>
-          <textarea id="json-input" class="w-full h-80 bg-[#171a21] border border-slate-700/80 rounded-xl p-4 font-mono text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-slate-200 shadow-inner" placeholder='{"key": "value"}'></textarea>
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-slate-400 mb-2">Formatted Output</label>
-          <textarea id="json-output" readonly class="w-full h-80 bg-[#171a21] border border-slate-700/80 rounded-xl p-4 font-mono text-sm focus:outline-none text-emerald-400 shadow-inner" placeholder="Formatted output will appear here..."></textarea>
-        </div>
-      </div>
-      <p id="json-error" class="text-rose-400 text-xs hidden font-mono bg-rose-950/40 border border-rose-900/50 p-3 rounded-lg"></p>
-    </section>
-
-    <!-- TOOL 2: Word Counter -->
-    <section id="tool-counter" class="tool-content hidden space-y-6">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-[#171a21] border border-slate-700/80 p-5 rounded-xl text-center shadow-sm">
-          <span id="stat-words" class="block text-3xl font-bold text-blue-400">0</span>
-          <span class="text-xs text-slate-400 mt-1 block">Words</span>
-        </div>
-        <div class="bg-[#171a21] border border-slate-700/80 p-5 rounded-xl text-center shadow-sm">
-          <span id="stat-chars" class="block text-3xl font-bold text-blue-400">0</span>
-          <span class="text-xs text-slate-400 mt-1 block">Characters</span>
-        </div>
-        <div class="bg-[#171a21] border border-slate-700/80 p-5 rounded-xl text-center shadow-sm">
-          <span id="stat-sentences" class="block text-3xl font-bold text-blue-400">0</span>
-          <span class="text-xs text-slate-400 mt-1 block">Sentences</span>
-        </div>
-        <div class="bg-[#171a21] border border-slate-700/80 p-5 rounded-xl text-center shadow-sm">
-          <span id="stat-readtime" class="block text-3xl font-bold text-blue-400">0m</span>
-          <span class="text-xs text-slate-400 mt-1 block">Read Time</span>
-        </div>
-      </div>
-      <div>
-        <textarea id="counter-input" oninput="analyzeText()" class="w-full h-72 bg-[#171a21] border border-slate-700/80 rounded-xl p-4 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-slate-200 shadow-inner" placeholder="Type or paste your text here to analyze..."></textarea>
-      </div>
-    </section>
-
-    <!-- TOOL 3: Password Generator -->
-    <section id="tool-password" class="tool-content hidden max-w-xl mx-auto space-y-6 bg-[#171a21] border border-slate-700/80 p-6 sm:p-8 rounded-2xl shadow-lg">
-      <h2 class="text-base font-semibold text-slate-200 mb-2 flex items-center space-x-2">
-        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-        <span>Secure Password Generator</span>
-      </h2>
-      
-      <div class="flex items-center space-x-2">
-        <input type="text" id="pass-output" readonly class="w-full bg-[#1e222b] border border-slate-700 text-blue-400 font-mono px-4 py-3 rounded-xl focus:outline-none text-lg shadow-inner">
-        <button onclick="copyPassword()" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-3 rounded-xl font-medium transition shadow-lg shadow-blue-600/20 active:scale-95"><i class="fa-regular fa-copy"></i></button>
-      </div>
-
-      <div class="space-y-5">
-        <div>
-          <label class="block text-xs font-medium text-slate-400 mb-2">Length: <span id="length-val" class="text-blue-400 font-bold">16</span></label>
-          <input type="range" id="pass-length" min="6" max="32" value="16" oninput="document.getElementById('length-val').innerText = this.value; generatePassword()" class="w-full accent-blue-500 cursor-pointer">
-        </div>
-        <div class="grid grid-cols-2 gap-4 text-sm text-slate-300">
-          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="chk-uppercase" checked onchange="generatePassword()" class="w-4 h-4 rounded accent-blue-500"> <span>Uppercase (A-Z)</span></label>
-          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="chk-lowercase" checked onchange="generatePassword()" class="w-4 h-4 rounded accent-blue-500"> <span>Lowercase (a-z)</span></label>
-          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="chk-numbers" checked onchange="generatePassword()" class="w-4 h-4 rounded accent-blue-500"> <span>Numbers (0-9)</span></label>
-          <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="chk-symbols" checked onchange="generatePassword()" class="w-4 h-4 rounded accent-blue-500"> <span>Symbols (!@#$)</span></label>
-        </div>
-        <button onclick="generatePassword()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 py-3 rounded-xl font-medium transition border border-slate-700 mt-2 active:scale-95">Generate New Password</button>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-700/60 py-6 text-center text-xs text-slate-400 relative z-10 bg-[#171a21]/50">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>&copy; 2026 Nexus Global Tools. All rights reserved.</p>
-      <div class="flex space-x-4">
-        <a href="https://calculator.nexusglobalit.org" target="_blank" class="hover:text-blue-400 transition">Calculator Tool</a>
-        <a href="https://web.nexusglobalit.org" target="_blank" class="hover:text-blue-400 transition">Web Portal</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- JavaScript Implementation -->
+<!-- JavaScript Implementation -->
   <script>
-    function switchTab(tabId) {
+    // URL ke mutabiq tool ko load ya switch karne ka function
+    function handleRouting() {
+      const hash = window.location.hash.replace('#', '') || 'json';
+      if (['json', 'counter', 'password'].includes(hash)) {
+        switchTab(hash, false);
+      }
+    }
+
+    function switchTab(tabId, updateHash = true) {
       document.querySelectorAll('.tool-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(el => {
         el.classList.remove('border-blue-500', 'text-blue-400', 'bg-slate-800/50');
         el.classList.add('border-transparent', 'text-slate-400');
       });
 
-      document.getElementById('tool-' + tabId).classList.remove('hidden');
+      const targetTool = document.getElementById('tool-' + tabId);
+      if (targetTool) {
+        targetTool.classList.remove('hidden');
+      }
+      
       const activeTab = document.getElementById('tab-' + tabId);
-      activeTab.classList.add('border-blue-500', 'text-blue-400', 'bg-slate-800/50');
-      activeTab.classList.remove('border-transparent', 'text-slate-400');
+      if (activeTab) {
+        activeTab.classList.add('border-blue-500', 'text-blue-400', 'bg-slate-800/50');
+        activeTab.classList.remove('border-transparent', 'text-slate-400');
+      }
+
+      // URL ka hash update karega taake alag link ban jaye
+      if (updateHash) {
+        window.location.hash = tabId;
+      }
     }
+
+    // Page load hone par route check karega
+    window.addEventListener('DOMContentLoaded', () => {
+      handleRouting();
+      generatePassword();
+    });
+
+    // Agar user browser ke back/forward buttons dabaye
+    window.addEventListener('hashchange', handleRouting);
 
     function formatJSON() {
       const input = document.getElementById('json-input').value;
@@ -218,8 +105,4 @@
         alert('Password copied to clipboard!');
       }
     }
-
-    generatePassword();
   </script>
-</body>
-</html>
