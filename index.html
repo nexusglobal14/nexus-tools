@@ -20,18 +20,32 @@
         <span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span>
         <span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span>
       </a>
-      <a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition shadow-xs">
-        <i class="fa-solid fa-house mr-1.5"></i> Main Home
-      </a>
+      <div class="flex items-center space-x-4">
+        <a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy Policy</a>
+        <a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition shadow-xs">
+          <i class="fa-solid fa-house mr-1.5"></i> Main Home
+        </a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="pt-28 pb-10 px-6 bg-white border-b border-slate-200 text-center">
-    <div class="max-w-4xl mx-auto">
-      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded">Ecosystem v2.0 Suite</span>
-      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Professional Developer & Media Utilities</h1>
-      <p class="text-slate-600 text-sm mt-2">Fast, client-side browser tools designed for absolute privacy, file conversion, and high productivity.</p>
+    <div class="max-w-4xl mx-auto space-y-3">
+      <div class="inline-flex items-center space-x-2 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold px-3 py-1 rounded-full">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>100% Private & Browser-Based</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Professional Developer & Media Utilities</h1>
+      <p class="text-slate-600 text-sm">Fast, client-side browser tools designed for absolute privacy, file conversion, and high productivity.</p>
+    </div>
+  </section>
+
+  <!-- Privacy Security Trust Banner -->
+  <section class="bg-blue-50 border-b border-blue-100 py-4 px-6 text-center text-xs text-blue-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-center space-x-2">
+      <i class="fa-solid fa-lock text-blue-600"></i>
+      <span><strong>Zero Upload Policy:</strong> All images, PDFs, and code conversions run locally on your device. Nothing touches our server.</span>
     </div>
   </section>
 
@@ -134,9 +148,14 @@
 
   </main>
 
+  <!-- Professional Footer with Privacy Policy Link -->
   <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500 bg-[#f2f2f2]">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
       <p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="/privacy-policy/" class="hover:underline font-semibold text-slate-700">Privacy Policy</a>
+        <a href="https://www.nexusglobalit.org/#contact" class="hover:underline text-slate-700">Contact Support</a>
+      </div>
     </div>
   </footer>
 </body>
