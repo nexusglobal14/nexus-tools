@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter & Text Analyzer | Nexus Tools Hub</title>
+  <link rel="canonical" href="https://tools.nexusglobalit.org/word-counter/">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style> body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; } </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0 shadow-xs">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="https://tools.nexusglobalit.org/" class="font-bold text-xl">Nexus <span class="text-blue-600">Tools Hub</span></a>
+      <a href="https://tools.nexusglobalit.org/" class="bg-blue-600 text-white text-xs font-semibold px-4 py-2.5 rounded">Back to Tools Hub</a>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 py-28 flex-grow w-full space-y-6">
+    <div class="bg-white border border-slate-200 p-8 rounded-2xl shadow-sm space-y-4">
+      <h1 class="text-2xl font-bold">Word Counter & Text Analyzer</h1>
+      <textarea id="text-input" oninput="analyzeText()" class="w-full h-40 border p-3 text-sm rounded bg-slate-50" placeholder='Type or paste your text here...'></textarea>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+          <div class="text-xs text-slate-500">Words</div>
+          <div id="word-count" class="text-xl font-bold text-blue-600">0</div>
+        </div>
+        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+          <div class="text-xs text-slate-500">Characters</div>
+          <div id="char-count" class="text-xl font-bold text-emerald-600">0</div>
+        </div>
+        <div class="bg-purple-50 p-4 rounded-xl border border-purple-100">
+          <div class="text-xs text-slate-500">Sentences</div>
+          <div id="sentence-count" class="text-xl font-bold text-purple-600">0</div>
+        </div>
+        <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
+          <div class="text-xs text-slate-500">Reading Time</div>
+          <div id="read-time" class="text-xl font-bold text-amber-600">0 min</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function analyzeText() {
+      const text = document.getElementById('text-input').value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      const chars = text.length;
+      const sentences = text ? text.split(/[.!?]+/).filter(Boolean).length : 0;
+      const readTime = Math.ceil(words / 200);
+
+      document.getElementById('word-count').innerText = words;
+      document.getElementById('char-count').innerText = chars;
+      document.getElementById('sentence-count').innerText = sentences;
+      document.getElementById('read-time').innerText = readTime + ' min';
+    }
+  </script>
+</body>
+</html>
