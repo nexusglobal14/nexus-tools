@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tools.nexusglobalit.org/</loc><priority>1.0</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/JSON%20Formatter/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/word%20counter/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/pasword%20generator/</loc><priority>0.8</priority></url>
   <url><loc>https://tools.nexusglobalit.org/image-compressor/</loc><priority>0.8</priority></url>
   <url><loc>https://tools.nexusglobalit.org/image-to-pdf/</loc><priority>0.8</priority></url>
   <url><loc>https://tools.nexusglobalit.org/pdf-to-image/</loc><priority>0.8</priority></url>
