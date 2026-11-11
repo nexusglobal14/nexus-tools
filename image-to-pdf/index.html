@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Image to PDF Converter | Nexus Tools Hub</title>
+  <meta name="description" content="Convert JPG, PNG images to PDF document instantly in your browser. 100% free and client-side.">
+  <link rel="canonical" href="https://tools.nexusglobalit.org/image-to-pdf/">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style> body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; } </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0 shadow-xs">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="https://www.nexusglobalit.org/" class="flex flex-col justify-center">
+        <span class="text-xl font-bold text-slate-900">Nexus <span class="text-blue-600">Tools Hub</span></span>
+        <span class="text-[10px] font-semibold text-slate-500 uppercase">Information Technology</span>
+      </a>
+      <a href="https://tools.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded">
+        <i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Tools Hub
+      </a>
+    </div>
+  </nav>
+
+  <section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded">Client-Side Utility</span>
+    <h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">Image to PDF Converter</h1>
+    <p class="text-slate-600 text-sm mt-1">Combine multiple images into a single PDF file instantly.</p>
+  </section>
+
+  <main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full">
+    <div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-6">
+      <div class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:border-blue-500 transition cursor-pointer" onclick="document.getElementById('img-input').click()">
+        <input type="file" id="img-input" accept="image/*" multiple class="hidden" onchange="handleFiles(event)">
+        <i class="fa-solid fa-file-pdf text-4xl text-blue-600 mb-3"></i>
+        <p class="text-sm font-semibold text-slate-800">Select Images to Convert</p>
+      </div>
+      <div id="file-list" class="text-xs text-slate-600 space-y-1"></div>
+      <button onclick="convertToPDF()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition text-sm">
+        <i class="fa-solid fa-download mr-2"></i> Convert & Download PDF
+      </button>
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+    <p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let images = [];
+    function handleFiles(e) {
+      images = Array.from(e.target.files);
+      const list = document.getElementById('file-list');
+      list.innerHTML = images.map(f => `<div>📄 ${f.name} (${(f.size/1024).toFixed(1)} KB)</div>`).join('');
+    }
+    async function convertToPDF() {
+      if (!images.length) return alert('Select images first');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF();
+      for (let i = 0; i < images.length; i++) {
+        const file = images[i];
+        const dataUrl = await new Promise(r => { const reader = new FileReader(); reader.onload = e => r(e.target.result); reader.readAsDataURL(file); });
+        if (i > 0) pdf.addPage();
+        pdf.addImage(dataUrl, 'JPEG', 10, 10, 190, 0);
+      }
+      pdf.save('nexus-converted.pdf');
+    }
+  </script>
+</body>
+</html>

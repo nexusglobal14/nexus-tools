@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Format Converter | Nexus Tools Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 p-8">
+  <div class="max-w-xl mx-auto bg-white p-6 rounded-xl border shadow-sm text-center">
+    <h1 class="text-2xl font-bold mb-4">Image Format Converter</h1>
+    <input type="file" id="imgInput" accept="image/*" class="mb-4">
+    <select id="fmt" class="border p-2 rounded mb-4">
+      <option value="image/webp">WebP</option>
+      <option value="image/png">PNG</option>
+      <option value="image/jpeg">JPG</option>
+    </select>
+    <button onclick="convert()" class="block w-full bg-blue-600 text-white py-2 rounded">Convert Image</button>
+    <a id="dl" class="hidden mt-4 inline-block text-blue-600 font-semibold" download="converted-image">Download Converted Image</a>
+  </div>
+  <script>
+    function convert() {
+      const f = document.getElementById('imgInput').files[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = e => {
+        const img = new Image();
+        img.onload = () => {
+          const cvs = document.createElement('canvas');
+          cvs.width = img.width; cvs.height = img.height;
+          cvs.getContext('2d').drawImage(img,0,0);
+          const dl = document.getElementById('dl');
+          dl.href = cvs.toDataURL(document.getElementById('fmt').value);
+          dl.classList.remove('hidden');
+        };
+        img.src = e.target.result;
+      };
+      r.readAsDataURL(f);
+    }
+  </script>
+</body>
+</html>

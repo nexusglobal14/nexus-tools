@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free PDF to Image Converter | Nexus Tools Hub</title>
+  <meta name="description" content="Convert PDF document pages to PNG images instantly in your browser.">
+  <link rel="canonical" href="https://tools.nexusglobalit.org/pdf-to-image/">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0 shadow-xs">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="https://www.nexusglobalit.org/" class="flex flex-col justify-center">
+        <span class="text-xl font-bold text-slate-900">Nexus <span class="text-blue-600">Tools Hub</span></span>
+      </a>
+      <a href="https://tools.nexusglobalit.org/" class="bg-blue-600 text-white text-xs font-semibold px-4 py-2.5 rounded">Back to Tools Hub</a>
+    </div>
+  </nav>
+
+  <section class="pt-28 pb-6 px-6 bg-white border-b text-center">
+    <h1 class="text-2xl sm:text-4xl font-bold text-slate-900">PDF to Image Converter</h1>
+    <p class="text-slate-600 text-sm mt-1">Convert PDF pages into PNG images fast and privately.</p>
+  </section>
+
+  <main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-6">
+    <div class="bg-white border border-slate-200 p-8 rounded-2xl shadow-sm text-center">
+      <input type="file" id="pdf-file" accept="application/pdf" class="hidden" onchange="convertPDFToImages(event)">
+      <button onclick="document.getElementById('pdf-file').click()" class="bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-semibold">Upload PDF File</button>
+      <div id="output" class="mt-6 space-y-4"></div>
+    </div>
+  </main>
+
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    async function convertPDFToImages(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+      const container = document.getElementById('output');
+      container.innerHTML = '';
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        const img = document.createElement('img');
+        img.src = canvas.toDataURL('image/png');
+        img.className = 'w-full rounded border shadow-sm my-2';
+        container.appendChild(img);
+      }
+    }
+  </script>
+</body>
+</html>

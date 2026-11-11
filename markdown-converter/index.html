@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown to HTML | Nexus Tools Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+</head>
+<body class="bg-slate-50 p-8 text-slate-900">
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl border shadow-sm">
+    <h1 class="text-2xl font-bold mb-4">Markdown to HTML</h1>
+    <div class="grid grid-cols-2 gap-4">
+      <textarea id="md" class="h-64 border p-3 font-mono text-sm rounded" oninput="conv()"></textarea>
+      <div id="out" class="h-64 border p-3 overflow-auto bg-slate-50 rounded"></div>
+    </div>
+  </div>
+  <script>
+    function conv() {
+      document.getElementById('out').innerHTML = marked.parse(document.getElementById('md').value);
+    }
+  </script>
+</body>
+</html>

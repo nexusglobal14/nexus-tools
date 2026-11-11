@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Minifier | Nexus Tools Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 p-8 text-slate-900">
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl border shadow-sm">
+    <h1 class="text-2xl font-bold mb-4">CSS Minifier</h1>
+    <textarea id="css" class="w-full h-40 border p-3 font-mono text-sm rounded mb-4" placeholder="Paste CSS here..."></textarea>
+    <button onclick="minify()" class="w-full bg-blue-600 text-white py-2 rounded mb-4">Minify CSS</button>
+    <textarea id="out" readonly class="w-full h-40 border p-3 font-mono text-sm rounded bg-slate-50"></textarea>
+  </div>
+  <script>
+    function minify() {
+      const c = document.getElementById('css').value;
+      document.getElementById('out').value = c.replace(/\s+/g, ' ').replace(/\s*([{}:;,])\s*/g, '$1').trim();
+    }
+  </script>
+</body>
+</html>
