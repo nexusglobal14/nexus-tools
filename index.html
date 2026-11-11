@@ -13,21 +13,13 @@
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
 
-  <!-- Header with Quick Navigation Buttons -->
+  <!-- Header -->
   <nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0 shadow-xs">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="https://tools.nexusglobalit.org/" class="flex flex-col justify-center">
         <span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span>
         <span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span>
       </a>
-      
-      <!-- Top Navigation Quick Links -->
-      <div class="hidden lg:flex items-center space-x-2 text-xs font-semibold">
-        <a href="#core-tools" class="px-3 py-2 text-slate-600 hover:text-blue-600 transition">Core Tools</a>
-        <a href="#media-tools" class="px-3 py-2 text-slate-600 hover:text-blue-600 transition">Media & PDF</a>
-        <a href="#dev-tools" class="px-3 py-2 text-slate-600 hover:text-blue-600 transition">Dev & Text</a>
-      </div>
-
       <a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition shadow-xs">
         <i class="fa-solid fa-house mr-1.5"></i> Main Home
       </a>
@@ -46,8 +38,8 @@
   <!-- Main Tools Grid Container -->
   <main class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full space-y-12">
     
-    <!-- SECTION 1: Core Utilities (JSON, Counter, Password) -->
-    <div id="core-tools">
+    <!-- SECTION 1: Core Utilities -->
+    <div>
       <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center space-x-2">
         <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
         <span>Core Productivity & Security Tools</span>
@@ -59,15 +51,15 @@
             <h3 class="font-bold text-slate-900 text-base mb-1">JSON Formatter</h3>
             <p class="text-xs text-slate-600 mb-4">Validate, beautify, and inspect raw JSON payloads instantly.</p>
           </div>
-          <a href="#json" onclick="loadCoreTool('json')" class="text-blue-600 hover:text-blue-700 font-semibold text-xs inline-flex items-center">Open Tool →</a>
+          <a href="/JSON%20Formatter/" class="text-blue-600 hover:text-blue-700 font-semibold text-xs inline-flex items-center">Open Tool →</a>
         </div>
         <div class="bg-white p-6 rounded-xl border border-slate-200 tool-card flex flex-col justify-between">
           <div>
             <div class="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center font-bold mb-3"><i class="fa-solid fa-font"></i></div>
             <h3 class="font-bold text-slate-900 text-base mb-1">Word Counter</h3>
-            <p class="text-xs text-slate-600 mb-4">Real-time word, character, sentence count and reading time estimator.</p>
+            <p class="text-xs text-slate-600 mb-4">Real-time word, character, sentence count and reading time.</p>
           </div>
-          <a href="#counter" onclick="loadCoreTool('counter')" class="text-blue-600 hover:text-blue-700 font-semibold text-xs inline-flex items-center">Open Tool →</a>
+          <a href="/word%20counter/" class="text-blue-600 hover:text-blue-700 font-semibold text-xs inline-flex items-center">Open Tool →</a>
         </div>
         <div class="bg-white p-6 rounded-xl border border-slate-200 tool-card flex flex-col justify-between">
           <div>
@@ -75,55 +67,39 @@
             <h3 class="font-bold text-slate-900 text-base mb-1">Password Generator</h3>
             <p class="text-xs text-slate-600 mb-4">Create high-security randomized passwords with custom symbols.</p>
           </div>
-          <a href="#password" onclick="loadCoreTool('password')" class="text-blue-600 hover:text-blue-700 font-semibold text-xs inline-flex items-center">Open Tool →</a>
+          <a href="/pasword%20generator/" class="text-blue-600 hover:text-blue-700 font-semibold text-xs inline-flex items-center">Open Tool →</a>
         </div>
       </div>
     </div>
 
-    <!-- SECTION 2: Image & PDF Conversion Sub-tools -->
-    <div id="media-tools">
+    <!-- SECTION 2: Media & Converters -->
+    <div>
       <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center space-x-2">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
         <span>Image & PDF Document Converters</span>
       </h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-white p-6 rounded-xl border border-slate-200 tool-card flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-3"><i class="fa-solid fa-compress"></i></div>
-            <h3 class="font-bold text-slate-900 text-sm mb-1">Image Compressor</h3>
-            <p class="text-xs text-slate-600 mb-4">Reduce JPG/PNG size locally.</p>
-          </div>
+          <div><h3 class="font-bold text-slate-900 text-sm mb-1">Image Compressor</h3><p class="text-xs text-slate-600 mb-4">Reduce JPG/PNG size locally.</p></div>
           <a href="/image-compressor/" class="text-blue-600 hover:underline font-semibold text-xs">Launch Tool →</a>
         </div>
         <div class="bg-white p-6 rounded-xl border border-slate-200 tool-card flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-3"><i class="fa-solid fa-file-pdf"></i></div>
-            <h3 class="font-bold text-slate-900 text-sm mb-1">Image to PDF</h3>
-            <p class="text-xs text-slate-600 mb-4">Combine images into PDF.</p>
-          </div>
+          <div><h3 class="font-bold text-slate-900 text-sm mb-1">Image to PDF</h3><p class="text-xs text-slate-600 mb-4">Combine images into PDF.</p></div>
           <a href="/image-to-pdf/" class="text-blue-600 hover:underline font-semibold text-xs">Launch Tool →</a>
         </div>
         <div class="bg-white p-6 rounded-xl border border-slate-200 tool-card flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-3"><i class="fa-solid fa-file-image"></i></div>
-            <h3 class="font-bold text-slate-900 text-sm mb-1">PDF to Image</h3>
-            <p class="text-xs text-slate-600 mb-4">Render PDF pages to PNG.</p>
-          </div>
+          <div><h3 class="font-bold text-slate-900 text-sm mb-1">PDF to Image</h3><p class="text-xs text-slate-600 mb-4">Render PDF pages to PNG.</p></div>
           <a href="/pdf-to-image/" class="text-blue-600 hover:underline font-semibold text-xs">Launch Tool →</a>
         </div>
         <div class="bg-white p-6 rounded-xl border border-slate-200 tool-card flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-3"><i class="fa-solid fa-exchange-alt"></i></div>
-            <h3 class="font-bold text-slate-900 text-sm mb-1">Image Converter</h3>
-            <p class="text-xs text-slate-600 mb-4">Convert WebP, PNG, JPG.</p>
-          </div>
+          <div><h3 class="font-bold text-slate-900 text-sm mb-1">Image Converter</h3><p class="text-xs text-slate-600 mb-4">Convert WebP, PNG, JPG.</p></div>
           <a href="/image-converter/" class="text-blue-600 hover:underline font-semibold text-xs">Launch Tool →</a>
         </div>
       </div>
     </div>
 
     <!-- SECTION 3: Developer & Text Utilities -->
-    <div id="dev-tools">
+    <div>
       <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center space-x-2">
         <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
         <span>Developer & Text Utilities</span>
@@ -158,7 +134,6 @@
 
   </main>
 
-  <!-- Footer -->
   <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500 bg-[#f2f2f2]">
     <div class="max-w-7xl mx-auto px-6">
       <p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p>
