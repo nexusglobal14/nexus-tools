@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tools.nexusglobalit.org/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://tools.nexusglobalit.org/#json</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tools.nexusglobalit.org/#counter</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tools.nexusglobalit.org/#password</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://tools.nexusglobalit.org/</loc><priority>1.0</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/image-compressor/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/image-to-pdf/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/pdf-to-image/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/image-converter/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/base64-converter/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/text-to-speech/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/qr-code/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/markdown-converter/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/css-minifier/</loc><priority>0.8</priority></url>
+  <url><loc>https://tools.nexusglobalit.org/html-encoder/</loc><priority>0.8</priority></url>
 </urlset>
