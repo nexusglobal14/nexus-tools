@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter - Count Words, Characters and Reading Time Online | Nexus Tools Hub</title>
+<meta name="description" content="Count words, characters, sentences and estimated reading time as you type. Free online word counter that runs privately in your browser.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/word-counter/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="Word Counter - Count Words, Characters and Reading Time Online | Nexus Tools Hub"><meta property="og:description" content="Count words, characters, sentences and estimated reading time as you type. Free online word counter that runs privately in your browser."><meta property="og:url" content="https://tools.nexusglobalit.org/word-counter/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Word Counter & Text Analyzer", "url": "https://tools.nexusglobalit.org/word-counter/", "description": "Count words, characters, sentences and estimated reading time as you type. Free online word counter that runs privately in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Word Counter", "item": "https://tools.nexusglobalit.org/word-counter/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are characters counted with spaces?", "acceptedAnswer": {"@type": "Answer", "text": "The Characters box counts everything including spaces and line breaks. The No spaces box counts only visible characters."}}, {"@type": "Question", "name": "How accurate is the reading time?", "acceptedAnswer": {"@type": "Answer", "text": "It is an estimate based on 200 words per minute. Technical or complex text usually takes longer."}}, {"@type": "Question", "name": "Does it save or upload my text?", "acceptedAnswer": {"@type": "Answer", "text": "No. The counts are calculated in your browser and your text is not sent anywhere."}}, {"@type": "Question", "name": "Does it work for languages without spaces?", "acceptedAnswer": {"@type": "Answer", "text": "Word counts rely on spaces, so for languages such as Chinese or Japanese the character count is more meaningful."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>Word Counter</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">Word Counter & Text Analyzer</h1>
+<p class="text-slate-600 text-sm mt-1">Real-time word, character and sentence counts with reading time.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<textarea id="text-input" oninput="analyzeText()" aria-label="Your text" class="w-full h-44 border border-slate-300 p-3 text-sm rounded bg-slate-50" placeholder="Type or paste your text here..."></textarea>
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center">
+<div class="bg-blue-50 p-4 rounded-xl border border-blue-100"><div class="text-xs text-slate-500">Words</div><div id="word-count" class="text-xl font-bold text-blue-600">0</div></div>
+<div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100"><div class="text-xs text-slate-500">Characters</div><div id="char-count" class="text-xl font-bold text-emerald-600">0</div></div>
+<div class="bg-teal-50 p-4 rounded-xl border border-teal-100"><div class="text-xs text-slate-500">No spaces</div><div id="nospace-count" class="text-xl font-bold text-teal-600">0</div></div>
+<div class="bg-purple-50 p-4 rounded-xl border border-purple-100"><div class="text-xs text-slate-500">Sentences</div><div id="sentence-count" class="text-xl font-bold text-purple-600">0</div></div>
+<div class="bg-amber-50 p-4 rounded-xl border border-amber-100"><div class="text-xs text-slate-500">Reading time</div><div id="read-time" class="text-xl font-bold text-amber-600">0 min</div></div>
+</div>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>This word counter updates instantly as you type or paste. It shows the number of words, characters with and without spaces, sentences and an estimated reading time. It is useful for essays, social posts, meta descriptions, articles and any text with a length limit.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Type or paste your text into the box.</li><li>Read the counts, which update as you type.</li><li>Edit your text until it meets your target length.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>How words are counted:</strong> words are groups of characters separated by spaces, tabs or line breaks. Hyphenated words such as well-known count as one word.</p><p><strong>Reading time:</strong> estimated at 200 words per minute, a common average for adult silent reading. Actual speed varies by reader and content.</p><p><strong>Sentences:</strong> counted by splitting on periods, exclamation marks and question marks, so abbreviations like Dr. or e.g. may add extra sentences.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Are characters counted with spaces?</h3><p>The Characters box counts everything including spaces and line breaks. The No spaces box counts only visible characters.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">How accurate is the reading time?</h3><p>It is an estimate based on 200 words per minute. Technical or complex text usually takes longer.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Does it save or upload my text?</h3><p>No. The counts are calculated in your browser and your text is not sent anywhere.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Does it work for languages without spaces?</h3><p>Word counts rely on spaces, so for languages such as Chinese or Japanese the character count is more meaningful.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/text-to-speech/">Text to Speech</a></li><li><a class="text-blue-600 underline" href="/markdown-converter/">Markdown to HTML Converter</a></li><li><a class="text-blue-600 underline" href="/html-encoder/">HTML Entity Encoder & Decoder</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+function analyzeText(){const raw=document.getElementById('text-input').value;const text=raw.trim();
+const words=text?text.split(/\s+/).length:0;const sentences=text?text.split(/[.!?]+/).filter(s=>s.trim()).length:0;
+document.getElementById('word-count').textContent=words;document.getElementById('char-count').textContent=raw.length;
+document.getElementById('nospace-count').textContent=raw.replace(/\s/g,'').length;document.getElementById('sentence-count').textContent=sentences;
+document.getElementById('read-time').textContent=words?Math.max(1,Math.ceil(words/200))+' min':'0 min';}
+</script>
+</body></html>

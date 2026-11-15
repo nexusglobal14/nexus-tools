@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Entity Encoder &amp; Decoder - Escape and Unescape HTML Online | Nexus Tools Hub</title>
+<meta name="description" content="Encode special characters to HTML entities and decode them back. Escape &lt;, >, &amp; and quotes safely. Free online tool that runs in your browser.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/html-encoder/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="HTML Entity Encoder &amp; Decoder - Escape and Unescape HTML Online | Nexus Tools Hub"><meta property="og:description" content="Encode special characters to HTML entities and decode them back. Escape &lt;, >, &amp; and quotes safely. Free online tool that runs in your browser."><meta property="og:url" content="https://tools.nexusglobalit.org/html-encoder/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "HTML Entity Encoder & Decoder", "url": "https://tools.nexusglobalit.org/html-encoder/", "description": "Encode special characters to HTML entities and decode them back. Escape <, >, & and quotes safely. Free online tool that runs in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "HTML Entity Encoder", "item": "https://tools.nexusglobalit.org/html-encoder/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When should I encode HTML?", "acceptedAnswer": {"@type": "Answer", "text": "Whenever you display text that might contain characters like < or & inside an HTML page, for example in code samples or user comments."}}, {"@type": "Question", "name": "Does encoding make input safe?", "acceptedAnswer": {"@type": "Answer", "text": "It helps for text placed in HTML body or attribute content, but safe output depends on context. Use proven libraries and framework features in production."}}, {"@type": "Question", "name": "Will decoding run scripts?", "acceptedAnswer": {"@type": "Answer", "text": "No. The decoder parses text in an inert document and only reads text content."}}, {"@type": "Question", "name": "Is my text uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything runs in your browser."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>HTML Entity Encoder</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">HTML Entity Encoder & Decoder</h1>
+<p class="text-slate-600 text-sm mt-1">Escape special characters as HTML entities, or decode them back.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<textarea id="inp" aria-label="Input" class="w-full h-36 border border-slate-300 p-3 font-mono text-sm rounded bg-slate-50" placeholder="Enter HTML or entity-encoded text..."></textarea>
+<div class="flex gap-3"><button onclick="enc()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-sm font-semibold">Encode</button>
+<button onclick="dec()" class="flex-1 bg-slate-700 hover:bg-slate-800 text-white py-3 rounded-xl text-sm font-semibold">Decode</button>
+<button onclick="copyOut()" class="border border-slate-300 px-6 rounded-xl text-sm font-semibold">Copy</button></div>
+<textarea id="out" readonly aria-label="Output" class="w-full h-36 border border-slate-300 p-3 font-mono text-sm rounded bg-slate-100"></textarea>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>HTML entities let you show characters that have a special meaning in HTML, such as less-than, greater-than and ampersand signs, as plain text. This tool encodes those characters into entities like &amp;lt; and &amp;amp; and decodes entity-encoded text back to normal characters.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Paste your text or code into the input box.</li><li>Click Encode to escape special characters, or Decode to convert entities back.</li><li>Click Copy to copy the output.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>Characters that are encoded:</strong> ampersand (&amp;amp;), less-than (&amp;lt;), greater-than (&amp;gt;), double quote (&amp;quot;) and single quote (&amp;#39;).</p><p><strong>Why it matters:</strong> escaping user-provided text before it is placed in a page helps prevent broken markup and cross-site scripting (XSS) problems. Use your framework's built-in escaping for real applications.</p><p><strong>Decoding:</strong> decoding uses the browser's HTML parser, so named entities such as &amp;copy; and numeric entities are supported. Scripts are never run.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">When should I encode HTML?</h3><p>Whenever you display text that might contain characters like < or & inside an HTML page, for example in code samples or user comments.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Does encoding make input safe?</h3><p>It helps for text placed in HTML body or attribute content, but safe output depends on context. Use proven libraries and framework features in production.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Will decoding run scripts?</h3><p>No. The decoder parses text in an inert document and only reads text content.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Is my text uploaded?</h3><p>No. Everything runs in your browser.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/markdown-converter/">Markdown to HTML Converter</a></li><li><a class="text-blue-600 underline" href="/base64-converter/">Base64 Encoder & Decoder</a></li><li><a class="text-blue-600 underline" href="/css-minifier/">CSS Minifier</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+function enc(){const v=document.getElementById('inp').value;
+document.getElementById('out').value=v.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function dec(){const v=document.getElementById('inp').value;const doc=new DOMParser().parseFromString(v,'text/html');
+document.getElementById('out').value=doc.documentElement.textContent;}
+function copyOut(){const v=document.getElementById('out').value;if(v)navigator.clipboard.writeText(v);}
+</script>
+</body></html>

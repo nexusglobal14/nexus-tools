@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Converter - Convert Between WebP, PNG and JPG Online | Nexus Tools Hub</title>
+<meta name="description" content="Convert images between WebP, PNG and JPG in your browser. Pick a format and download the result. Free and private, with no upload.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/image-converter/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="Image Converter - Convert Between WebP, PNG and JPG Online | Nexus Tools Hub"><meta property="og:description" content="Convert images between WebP, PNG and JPG in your browser. Pick a format and download the result. Free and private, with no upload."><meta property="og:url" content="https://tools.nexusglobalit.org/image-converter/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Image Format Converter", "url": "https://tools.nexusglobalit.org/image-converter/", "description": "Convert images between WebP, PNG and JPG in your browser. Pick a format and download the result. Free and private, with no upload.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Image Converter", "item": "https://tools.nexusglobalit.org/image-converter/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my image uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The conversion is done locally in your browser."}}, {"@type": "Question", "name": "Does the image dimension change?", "acceptedAnswer": {"@type": "Answer", "text": "No. The converted image keeps the same width and height as the original."}}, {"@type": "Question", "name": "Why is my converted file larger?", "acceptedAnswer": {"@type": "Answer", "text": "Converting a compressed JPG to PNG, for example, usually makes it larger because PNG is lossless."}}, {"@type": "Question", "name": "Is WebP supported everywhere?", "acceptedAnswer": {"@type": "Answer", "text": "All current major browsers support WebP, though some older software cannot open it. Choose JPG or PNG for maximum compatibility."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>Image Converter</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">Image Format Converter</h1>
+<p class="text-slate-600 text-sm mt-1">Convert images between WebP, PNG and JPG.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<div class="text-center space-y-4">
+<input type="file" id="imgInput" accept="image/*" aria-label="Choose image" class="text-sm">
+<div><label for="fmt" class="text-sm font-semibold mr-2">Convert to</label>
+<select id="fmt" class="border border-slate-300 p-2 rounded text-sm"><option value="image/webp">WebP</option><option value="image/png">PNG</option><option value="image/jpeg">JPG</option></select></div>
+<button onclick="convertImage()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-sm font-semibold">Convert image</button>
+<p id="conv-status" class="text-sm text-slate-600" role="status"></p>
+<a id="dl" class="hidden inline-block text-blue-600 font-semibold hover:underline">Download converted image</a></div>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>This converter changes the format of an image between WebP, PNG and JPG. Choose a file, pick the target format and download the result. Everything happens in your browser using the canvas, so your picture is never uploaded.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Choose an image file.</li><li>Select WebP, PNG or JPG in the Convert to menu.</li><li>Click Convert image.</li><li>Click the download link to save the converted file.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>Which format to pick:</strong> use PNG for graphics, screenshots and anything needing transparency. Use JPG for photos when you need wide compatibility. Use WebP for the web, where it usually gives smaller files than JPG or PNG at similar quality.</p><p><strong>Transparency:</strong> JPG cannot store transparency, so transparent areas become white when you convert to JPG.</p><p><strong>Metadata:</strong> converting through the canvas removes EXIF data such as camera model and location, which can be a privacy benefit.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Is my image uploaded?</h3><p>No. The conversion is done locally in your browser.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Does the image dimension change?</h3><p>No. The converted image keeps the same width and height as the original.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Why is my converted file larger?</h3><p>Converting a compressed JPG to PNG, for example, usually makes it larger because PNG is lossless.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Is WebP supported everywhere?</h3><p>All current major browsers support WebP, though some older software cannot open it. Choose JPG or PNG for maximum compatibility.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/image-compressor/">Image Compressor & Resizer</a></li><li><a class="text-blue-600 underline" href="/image-to-pdf/">Image to PDF Converter</a></li><li><a class="text-blue-600 underline" href="/pdf-to-image/">PDF to Image Converter</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+function convertImage(){const f=document.getElementById('imgInput').files[0];const st=document.getElementById('conv-status');
+if(!f){st.textContent='Please choose an image first.';return;}
+const fmt=document.getElementById('fmt').value;const ext={'image/webp':'webp','image/png':'png','image/jpeg':'jpg'}[fmt];
+const url=URL.createObjectURL(f);const img=new Image();
+img.onload=()=>{const c=document.createElement('canvas');c.width=img.width;c.height=img.height;const ctx=c.getContext('2d');
+if(fmt==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);}
+ctx.drawImage(img,0,0);URL.revokeObjectURL(url);
+const dl=document.getElementById('dl');dl.href=c.toDataURL(fmt,0.92);dl.download=f.name.replace(/\.[^.]+$/,'')+'.'+ext;dl.classList.remove('hidden');
+st.textContent='Done. Converted to '+ext.toUpperCase()+' ('+img.width+' x '+img.height+' px).';};
+img.onerror=()=>{st.textContent='Could not read that image.';};img.src=url;}
+</script>
+</body></html>

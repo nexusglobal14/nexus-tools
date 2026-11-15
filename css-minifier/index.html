@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Minifier - Compress and Minify CSS Online | Nexus Tools Hub</title>
+<meta name="description" content="Minify CSS by removing comments, whitespace and line breaks. See the size savings instantly. Free online CSS compressor that runs in your browser.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/css-minifier/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="CSS Minifier - Compress and Minify CSS Online | Nexus Tools Hub"><meta property="og:description" content="Minify CSS by removing comments, whitespace and line breaks. See the size savings instantly. Free online CSS compressor that runs in your browser."><meta property="og:url" content="https://tools.nexusglobalit.org/css-minifier/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSS Minifier", "url": "https://tools.nexusglobalit.org/css-minifier/", "description": "Minify CSS by removing comments, whitespace and line breaks. See the size savings instantly. Free online CSS compressor that runs in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "CSS Minifier", "item": "https://tools.nexusglobalit.org/css-minifier/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will minifying break my CSS?", "acceptedAnswer": {"@type": "Answer", "text": "For normal stylesheets no. If you use unusual content such as string values with several spaces, check the result. Keep a backup of your original."}}, {"@type": "Question", "name": "How much smaller will my CSS get?", "acceptedAnswer": {"@type": "Answer", "text": "Typically 10 to 30 percent, depending on how much whitespace and how many comments the file has."}}, {"@type": "Question", "name": "Does this replace a build tool?", "acceptedAnswer": {"@type": "Answer", "text": "It is a quick utility for single files. Large projects usually minify automatically in their build process."}}, {"@type": "Question", "name": "Is my code uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Minification runs locally in your browser."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>CSS Minifier</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">CSS Minifier</h1>
+<p class="text-slate-600 text-sm mt-1">Remove comments and whitespace from CSS and see how much you save.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<textarea id="css" aria-label="CSS input" class="w-full h-44 border border-slate-300 p-3 font-mono text-sm rounded bg-slate-50" placeholder="Paste your CSS here..."></textarea>
+<div class="flex gap-3"><button onclick="minify()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-sm font-semibold">Minify CSS</button>
+<button onclick="copyOut()" class="border border-slate-300 px-6 rounded-xl text-sm font-semibold">Copy</button></div>
+<p id="css-status" class="text-sm text-slate-600 min-h-[1.25rem]" role="status"></p>
+<textarea id="out" readonly aria-label="Minified CSS" class="w-full h-44 border border-slate-300 p-3 font-mono text-sm rounded bg-slate-100"></textarea>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>Minifying CSS removes characters that browsers do not need, such as comments, line breaks and extra spaces, so the file downloads faster. Paste your stylesheet, click Minify and the tool shows the compressed CSS and how many bytes you saved.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Paste your CSS into the input box.</li><li>Click Minify CSS.</li><li>Review the savings message and the minified output.</li><li>Click Copy and use the result in your project.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>What is removed:</strong> comments, line breaks, repeated spaces, spaces around braces, colons, semicolons and commas, and the final semicolon before a closing brace.</p><p><strong>What is not changed:</strong> selectors, property names and values are preserved. The tool does not rename classes, merge rules or rewrite colors.</p><p><strong>Keep your source:</strong> always keep the original readable CSS and use the minified file only for production.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Will minifying break my CSS?</h3><p>For normal stylesheets no. If you use unusual content such as string values with several spaces, check the result. Keep a backup of your original.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">How much smaller will my CSS get?</h3><p>Typically 10 to 30 percent, depending on how much whitespace and how many comments the file has.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Does this replace a build tool?</h3><p>It is a quick utility for single files. Large projects usually minify automatically in their build process.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Is my code uploaded?</h3><p>No. Minification runs locally in your browser.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/markdown-converter/">Markdown to HTML Converter</a></li><li><a class="text-blue-600 underline" href="/html-encoder/">HTML Entity Encoder & Decoder</a></li><li><a class="text-blue-600 underline" href="/json-formatter/">JSON Formatter & Validator</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+function minify(){const c=document.getElementById('css').value;
+const m=c.replace(/\/\*[\s\S]*?\*\//g,'').replace(/\s+/g,' ').replace(/\s*([{}:;,>])\s*/g,'$1').replace(/;}/g,'}').trim();
+document.getElementById('out').value=m;const a=new Blob([c]).size,b=new Blob([m]).size;
+document.getElementById('css-status').textContent=a?('Original '+a+' bytes, minified '+b+' bytes, saved '+(100-b/a*100).toFixed(1)+'%.'):'';}
+function copyOut(){const v=document.getElementById('out').value;if(v)navigator.clipboard.writeText(v);}
+</script>
+</body></html>

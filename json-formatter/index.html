@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON Formatter &amp; Validator - Beautify and Check JSON Online | Nexus Tools Hub</title>
+<meta name="description" content="Format, beautify and validate JSON in your browser. Paste raw JSON, fix syntax errors and copy clean, indented output. Free and private.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/json-formatter/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="JSON Formatter &amp; Validator - Beautify and Check JSON Online | Nexus Tools Hub"><meta property="og:description" content="Format, beautify and validate JSON in your browser. Paste raw JSON, fix syntax errors and copy clean, indented output. Free and private."><meta property="og:url" content="https://tools.nexusglobalit.org/json-formatter/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "JSON Formatter & Validator", "url": "https://tools.nexusglobalit.org/json-formatter/", "description": "Format, beautify and validate JSON in your browser. Paste raw JSON, fix syntax errors and copy clean, indented output. Free and private.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "JSON Formatter", "item": "https://tools.nexusglobalit.org/json-formatter/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my JSON sent to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Parsing and formatting use your browser's built-in JSON functions, so your data stays on your device."}}, {"@type": "Question", "name": "Why does it say my JSON is invalid?", "acceptedAnswer": {"@type": "Answer", "text": "The most common causes are trailing commas, single quotes and missing brackets. The error message gives the position where parsing failed."}}, {"@type": "Question", "name": "What is the difference between formatting and minifying?", "acceptedAnswer": {"@type": "Answer", "text": "Formatting adds line breaks and indentation for readability. Minifying removes them to make the text as small as possible."}}, {"@type": "Question", "name": "Can it handle large files?", "acceptedAnswer": {"@type": "Answer", "text": "It can handle large text, but very large inputs depend on your device's memory and may be slow."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>JSON Formatter</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">JSON Formatter & Validator</h1>
+<p class="text-slate-600 text-sm mt-1">Validate and beautify raw JSON instantly, with clear error messages.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<textarea id="json-input" aria-label="JSON input" class="w-full h-44 border border-slate-300 p-3 font-mono text-sm rounded bg-slate-50" placeholder='Paste raw JSON here, for example {"name":"Nexus","tools":13}'></textarea>
+<div class="flex flex-wrap gap-3">
+<button onclick="formatJSON(2)" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded font-semibold text-sm">Format (2 spaces)</button>
+<button onclick="formatJSON(4)" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded font-semibold text-sm">Format (4 spaces)</button>
+<button onclick="minifyJSON()" class="bg-slate-700 hover:bg-slate-800 text-white px-5 py-2.5 rounded font-semibold text-sm">Minify</button>
+<button onclick="copyJSON()" class="border border-slate-300 px-5 py-2.5 rounded font-semibold text-sm">Copy output</button>
+<button onclick="clearJSON()" class="border border-slate-300 px-5 py-2.5 rounded font-semibold text-sm">Clear</button>
+</div>
+<p id="json-status" class="text-sm min-h-[1.25rem]" role="status"></p>
+<textarea id="json-output" readonly aria-label="Formatted output" class="w-full h-44 border border-slate-300 p-3 font-mono text-sm rounded bg-slate-100" placeholder="Formatted output appears here"></textarea>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>This JSON formatter checks whether your JSON is valid and rewrites it with clean indentation so it is easy to read. Paste any JSON, such as an API response or a config file, and choose a format. If the text is not valid JSON, the tool shows the parser's error message so you can find the problem. You can also minify JSON to remove all extra whitespace.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Paste your JSON into the input box.</li><li>Click Format with 2 or 4 spaces, or click Minify for the most compact form.</li><li>If there is an error, read the message and fix the text it points to.</li><li>Click Copy output to copy the result.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>What counts as valid JSON?</strong> Property names and strings must use double quotes. Single quotes, trailing commas, comments and unquoted keys are not allowed by the JSON standard. Values can be strings, numbers, true, false, null, arrays or objects.</p><p><strong>Common errors:</strong> a trailing comma after the last item, a missing closing bracket or brace, single quotes instead of double quotes, and unescaped quotation marks inside strings.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Is my JSON sent to a server?</h3><p>No. Parsing and formatting use your browser's built-in JSON functions, so your data stays on your device.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Why does it say my JSON is invalid?</h3><p>The most common causes are trailing commas, single quotes and missing brackets. The error message gives the position where parsing failed.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">What is the difference between formatting and minifying?</h3><p>Formatting adds line breaks and indentation for readability. Minifying removes them to make the text as small as possible.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Can it handle large files?</h3><p>It can handle large text, but very large inputs depend on your device's memory and may be slow.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/base64-converter/">Base64 Encoder & Decoder</a></li><li><a class="text-blue-600 underline" href="/html-encoder/">HTML Entity Encoder & Decoder</a></li><li><a class="text-blue-600 underline" href="/css-minifier/">CSS Minifier</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+function setStatus(m,ok){const s=document.getElementById('json-status');s.textContent=m;s.className='text-sm min-h-[1.25rem] '+(ok?'text-emerald-600':'text-rose-600');}
+function parseInput(){return JSON.parse(document.getElementById('json-input').value);}
+function formatJSON(n){try{document.getElementById('json-output').value=JSON.stringify(parseInput(),null,n);setStatus('Valid JSON. Formatted successfully.',true);}catch(e){setStatus('Invalid JSON: '+e.message,false);}}
+function minifyJSON(){try{document.getElementById('json-output').value=JSON.stringify(parseInput());setStatus('Valid JSON. Minified successfully.',true);}catch(e){setStatus('Invalid JSON: '+e.message,false);}}
+function copyJSON(){const v=document.getElementById('json-output').value;if(!v)return;navigator.clipboard.writeText(v).then(()=>setStatus('Copied to clipboard.',true));}
+function clearJSON(){document.getElementById('json-input').value='';document.getElementById('json-output').value='';setStatus('',true);}
+</script>
+</body></html>

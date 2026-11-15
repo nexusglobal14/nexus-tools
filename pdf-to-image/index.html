@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to Image Converter - Turn PDF Pages into PNG Online | Nexus Tools Hub</title>
+<meta name="description" content="Convert each page of a PDF into a PNG image in your browser. Preview pages and download them individually. Free and private, with no upload.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/pdf-to-image/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="PDF to Image Converter - Turn PDF Pages into PNG Online | Nexus Tools Hub"><meta property="og:description" content="Convert each page of a PDF into a PNG image in your browser. Preview pages and download them individually. Free and private, with no upload."><meta property="og:url" content="https://tools.nexusglobalit.org/pdf-to-image/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "PDF to Image Converter", "url": "https://tools.nexusglobalit.org/pdf-to-image/", "description": "Convert each page of a PDF into a PNG image in your browser. Preview pages and download them individually. Free and private, with no upload.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "PDF to Image", "item": "https://tools.nexusglobalit.org/pdf-to-image/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my PDF uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The PDF is read and rendered locally in your browser with the open-source PDF.js library."}}, {"@type": "Question", "name": "Can I convert only some pages?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. All pages are converted, but you can download only the ones you need."}}, {"@type": "Question", "name": "Why is my PDF not opening?", "acceptedAnswer": {"@type": "Answer", "text": "It may be password-protected or damaged. Try opening it in a PDF viewer first to check."}}, {"@type": "Question", "name": "What format are the images?", "acceptedAnswer": {"@type": "Answer", "text": "PNG, which is lossless and keeps text sharp."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>PDF to Image</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">PDF to Image Converter</h1>
+<p class="text-slate-600 text-sm mt-1">Convert PDF pages into PNG images and download them.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<div class="text-center">
+<input type="file" id="pdf-file" accept="application/pdf" class="hidden" onchange="convertPDFToImages(event)">
+<button onclick="document.getElementById('pdf-file').click()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm font-semibold">Choose a PDF file</button>
+<p id="pdf-status" class="text-sm text-slate-600 mt-3" role="status"></p></div>
+<div id="output" class="space-y-6"></div>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>This tool renders each page of a PDF as a PNG image. Choose a PDF file and every page is drawn in your browser, shown as a preview and made available as a separate download. It is helpful when you need a page as a picture for a presentation, a website or a chat message.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Click Choose a PDF file and select your document.</li><li>Wait while each page is rendered. A status message shows progress.</li><li>Check the previews.</li><li>Click Download page N under any page to save it as a PNG.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>Image quality:</strong> pages are rendered at twice the standard 72 dpi resolution, which gives sharp text for screen use. Very large pages produce large images.</p><p><strong>Limitations:</strong> password-protected PDFs cannot be opened. Very long documents can use a lot of memory because every page is kept as an image on the page.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Is my PDF uploaded anywhere?</h3><p>No. The PDF is read and rendered locally in your browser with the open-source PDF.js library.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Can I convert only some pages?</h3><p>Not yet. All pages are converted, but you can download only the ones you need.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Why is my PDF not opening?</h3><p>It may be password-protected or damaged. Try opening it in a PDF viewer first to check.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">What format are the images?</h3><p>PNG, which is lossless and keeps text sharp.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/image-to-pdf/">Image to PDF Converter</a></li><li><a class="text-blue-600 underline" href="/image-converter/">Image Format Converter</a></li><li><a class="text-blue-600 underline" href="/image-compressor/">Image Compressor & Resizer</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+async function convertPDFToImages(e){const file=e.target.files[0];if(!file)return;
+const st=document.getElementById('pdf-status');const box=document.getElementById('output');box.textContent='';st.textContent='Reading PDF...';
+try{const pdf=await pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise;
+for(let i=1;i<=pdf.numPages;i++){st.textContent='Rendering page '+i+' of '+pdf.numPages+'...';
+const page=await pdf.getPage(i);const vp=page.getViewport({scale:2});const c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;
+await page.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;const url=c.toDataURL('image/png');
+const wrap=document.createElement('div');wrap.className='text-center';
+const img=document.createElement('img');img.src=url;img.alt='PDF page '+i;img.className='w-full rounded border shadow-sm';
+const a=document.createElement('a');a.href=url;a.download='page-'+i+'.png';a.textContent='Download page '+i+' (PNG)';a.className='inline-block mt-2 text-blue-600 font-semibold text-sm hover:underline';
+wrap.appendChild(img);wrap.appendChild(a);box.appendChild(wrap);}
+st.textContent='Done. '+pdf.numPages+' page(s) converted.';}catch(err){st.textContent='Could not read this PDF: '+err.message;}}
+</script>
+</body></html>

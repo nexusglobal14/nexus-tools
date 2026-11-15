@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator - Create QR Codes for URLs and Text | Nexus Tools Hub</title>
+<meta name="description" content="Generate QR codes for links, text, Wi-Fi details or contact info in your browser. Download the QR code as a PNG image. Free, with no sign-up.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/qr-code/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="QR Code Generator - Create QR Codes for URLs and Text | Nexus Tools Hub"><meta property="og:description" content="Generate QR codes for links, text, Wi-Fi details or contact info in your browser. Download the QR code as a PNG image. Free, with no sign-up."><meta property="og:url" content="https://tools.nexusglobalit.org/qr-code/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "QR Code Generator", "url": "https://tools.nexusglobalit.org/qr-code/", "description": "Generate QR codes for links, text, Wi-Fi details or contact info in your browser. Download the QR code as a PNG image. Free, with no sign-up.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "QR Code Generator", "item": "https://tools.nexusglobalit.org/qr-code/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the QR code expire?", "acceptedAnswer": {"@type": "Answer", "text": "No. It encodes your data directly and works as long as the destination link works."}}, {"@type": "Question", "name": "Can I use it commercially?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The QR code you create is yours to use."}}, {"@type": "Question", "name": "Why will my code not scan?", "acceptedAnswer": {"@type": "Answer", "text": "Content that is too long, low contrast, a blurry print or a code that is too small are the usual causes. Shorten the text or enlarge the code."}}, {"@type": "Question", "name": "Is my data uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The code is generated locally in your browser."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>QR Code Generator</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">QR Code Generator</h1>
+<p class="text-slate-600 text-sm mt-1">Create a QR code from any link or text and download it as PNG.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<div class="text-center space-y-4">
+<input type="text" id="t" aria-label="URL or text" class="w-full border border-slate-300 p-3 rounded text-sm" placeholder="Enter a URL or text, for example https://www.nexusglobalit.org">
+<button onclick="gen()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-sm font-semibold">Generate QR code</button>
+<div id="qrcode" class="flex justify-center"></div>
+<a id="qr-dl" class="hidden inline-block text-blue-600 font-semibold hover:underline" download="qr-code.png">Download QR code (PNG)</a></div>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>A QR code is a square barcode that phones can scan to open a link, show text or save contact details. Enter a URL or any text, click Generate and the QR code appears immediately. You can then download it as a PNG image for print or screen use.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Type or paste a URL or text. A full URL should start with https://.</li><li>Click Generate QR code.</li><li>Test it by scanning with your phone camera.</li><li>Click Download QR code (PNG) to save the image.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>What can a QR code hold?</strong> Web links, plain text, phone numbers (tel:), email addresses (mailto:) and more. Longer content creates a denser code that is harder to scan.</p><p><strong>Printing tips:</strong> keep strong contrast between dark modules and the light background, leave a blank margin around the code and print it at least 2 cm wide. Always test the printed code before sharing it.</p><p><strong>Static codes:</strong> the code contains your data directly. It does not expire and does not track scans.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Does the QR code expire?</h3><p>No. It encodes your data directly and works as long as the destination link works.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Can I use it commercially?</h3><p>Yes. The QR code you create is yours to use.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Why will my code not scan?</h3><p>Content that is too long, low contrast, a blurry print or a code that is too small are the usual causes. Shorten the text or enlarge the code.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Is my data uploaded?</h3><p>No. The code is generated locally in your browser.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/base64-converter/">Base64 Encoder & Decoder</a></li><li><a class="text-blue-600 underline" href="/password-generator/">Password Generator</a></li><li><a class="text-blue-600 underline" href="/image-converter/">Image Format Converter</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+function gen(){const t=document.getElementById('t').value.trim();const box=document.getElementById('qrcode');const dl=document.getElementById('qr-dl');box.textContent='';dl.classList.add('hidden');if(!t)return;
+new QRCode(box,{text:t,width:256,height:256});
+setTimeout(()=>{const c=box.querySelector('canvas');const im=box.querySelector('img');const src=c?c.toDataURL('image/png'):(im?im.src:'');if(src){dl.href=src;dl.classList.remove('hidden');}},150);}
+</script>
+</body></html>

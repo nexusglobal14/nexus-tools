@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Random Password Generator - Strong Passwords Online | Nexus Tools Hub</title>
+<meta name="description" content="Generate strong random passwords with your chosen length and character types. Uses your browser's cryptographic random generator. Nothing is stored or sent.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/password-generator/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="Secure Random Password Generator - Strong Passwords Online | Nexus Tools Hub"><meta property="og:description" content="Generate strong random passwords with your chosen length and character types. Uses your browser's cryptographic random generator. Nothing is stored or sent."><meta property="og:url" content="https://tools.nexusglobalit.org/password-generator/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Password Generator", "url": "https://tools.nexusglobalit.org/password-generator/", "description": "Generate strong random passwords with your chosen length and character types. Uses your browser's cryptographic random generator. Nothing is stored or sent.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Password Generator", "item": "https://tools.nexusglobalit.org/password-generator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are the passwords really random?", "acceptedAnswer": {"@type": "Answer", "text": "They are generated with the browser's cryptographically secure random number generator, not Math.random, and use rejection sampling to avoid bias."}}, {"@type": "Question", "name": "Does the site see or store my password?", "acceptedAnswer": {"@type": "Answer", "text": "No. Passwords are created locally in your browser and are never transmitted."}}, {"@type": "Question", "name": "How long should my password be?", "acceptedAnswer": {"@type": "Answer", "text": "At least 12 to 16 characters for most accounts, and longer for important ones such as email and banking."}}, {"@type": "Question", "name": "Why can some sites reject symbols?", "acceptedAnswer": {"@type": "Answer", "text": "A few sites limit which symbols are allowed. If so, turn symbols off and increase the length instead."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>Password Generator</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">Password Generator</h1>
+<p class="text-slate-600 text-sm mt-1">Create strong random passwords using your browser's secure random generator.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<div class="flex gap-2">
+<input type="text" id="password-output" readonly aria-label="Generated password" class="w-full border border-slate-300 p-3 font-mono text-lg rounded bg-slate-50">
+<button onclick="generatePassword()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 rounded font-semibold text-sm">Generate</button>
+<button onclick="copyPassword()" class="border border-slate-300 px-5 rounded font-semibold text-sm">Copy</button>
+</div>
+<div><label for="len" class="block text-xs font-semibold text-slate-700 uppercase mb-2">Length: <span id="len-val" class="text-blue-600 font-bold">16</span></label>
+<input type="range" id="len" min="8" max="64" value="16" class="w-full accent-blue-600" oninput="document.getElementById('len-val').textContent=this.value;generatePassword()"></div>
+<div class="flex flex-wrap gap-5 text-sm">
+<label><input type="checkbox" id="lower" checked> Lowercase (a-z)</label>
+<label><input type="checkbox" id="upper" checked> Uppercase (A-Z)</label>
+<label><input type="checkbox" id="digits" checked> Numbers (0-9)</label>
+<label><input type="checkbox" id="symbols" checked> Symbols (!@#$...)</label>
+</div>
+<p id="pw-status" class="text-sm min-h-[1.25rem]" role="status"></p>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>This password generator creates random passwords from the character types you select. Choose a length from 8 to 64 characters, switch lowercase, uppercase, numbers and symbols on or off, and click Generate. Randomness comes from your browser's cryptographic generator (crypto.getRandomValues), which is designed for security use, and the password is created on your device. It is never sent or stored.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Move the slider to choose a length. Longer is stronger.</li><li>Tick the character types you want to include.</li><li>Click Generate for a new password.</li><li>Click Copy and paste it into your password manager or the sign-up form.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>How strong is it?</strong> Strength depends mainly on length and the size of the character pool. The tool shows an approximate entropy figure in bits. As a rough guide, 16 random characters from all four sets gives well over 90 bits.</p><p><strong>Good habits:</strong> use a different password for every account, store them in a reputable password manager and turn on two-factor authentication wherever it is offered.</p><p><strong>Guaranteed variety:</strong> when several character types are selected, the generator includes at least one character from each before shuffling.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Are the passwords really random?</h3><p>They are generated with the browser's cryptographically secure random number generator, not Math.random, and use rejection sampling to avoid bias.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Does the site see or store my password?</h3><p>No. Passwords are created locally in your browser and are never transmitted.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">How long should my password be?</h3><p>At least 12 to 16 characters for most accounts, and longer for important ones such as email and banking.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Why can some sites reject symbols?</h3><p>A few sites limit which symbols are allowed. If so, turn symbols off and increase the length instead.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/qr-code/">QR Code Generator</a></li><li><a class="text-blue-600 underline" href="/base64-converter/">Base64 Encoder & Decoder</a></li><li><a class="text-blue-600 underline" href="/word-counter/">Word Counter & Text Analyzer</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+function rnd(max){const lim=Math.floor(4294967296/max)*max;const a=new Uint32Array(1);do{crypto.getRandomValues(a);}while(a[0]>=lim);return a[0]%max;}
+function generatePassword(){const sets=[];
+if(document.getElementById('lower').checked)sets.push('abcdefghijklmnopqrstuvwxyz');
+if(document.getElementById('upper').checked)sets.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+if(document.getElementById('digits').checked)sets.push('0123456789');
+if(document.getElementById('symbols').checked)sets.push('!@#$%^&*()-_=+[]{};:,.?');
+const out=document.getElementById('password-output');const st=document.getElementById('pw-status');
+if(!sets.length){out.value='';st.textContent='Select at least one character type.';st.className='text-sm text-rose-600';return;}
+const len=parseInt(document.getElementById('len').value);const all=sets.join('');const chars=sets.map(s=>s[rnd(s.length)]);
+while(chars.length<len)chars.push(all[rnd(all.length)]);
+for(let i=chars.length-1;i>0;i--){const j=rnd(i+1);[chars[i],chars[j]]=[chars[j],chars[i]];}
+out.value=chars.slice(0,len).join('');
+const bits=Math.round(len*Math.log2(all.length));st.textContent='Approximate strength: '+bits+' bits of entropy.';st.className='text-sm text-slate-600';}
+function copyPassword(){const v=document.getElementById('password-output').value;if(v)navigator.clipboard.writeText(v);}
+window.addEventListener('load',generatePassword);
+</script>
+</body></html>

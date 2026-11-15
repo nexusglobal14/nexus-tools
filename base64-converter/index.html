@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base64 Encoder &amp; Decoder - Convert Text and Images to Base64 | Nexus Tools Hub</title>
+<meta name="description" content="Encode text or images to Base64 and decode Base64 back to text. Handles UTF-8 and image data URLs. Free, private and runs in your browser.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/base64-converter/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="Base64 Encoder &amp; Decoder - Convert Text and Images to Base64 | Nexus Tools Hub"><meta property="og:description" content="Encode text or images to Base64 and decode Base64 back to text. Handles UTF-8 and image data URLs. Free, private and runs in your browser."><meta property="og:url" content="https://tools.nexusglobalit.org/base64-converter/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Base64 Encoder & Decoder", "url": "https://tools.nexusglobalit.org/base64-converter/", "description": "Encode text or images to Base64 and decode Base64 back to text. Handles UTF-8 and image data URLs. Free, private and runs in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Base64 Encoder/Decoder", "item": "https://tools.nexusglobalit.org/base64-converter/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Base64 secure?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is an encoding, not encryption. It offers no protection for sensitive data."}}, {"@type": "Question", "name": "Does it support Unicode?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Text is converted with UTF-8 before encoding and after decoding."}}, {"@type": "Question", "name": "Why does decoding fail?", "acceptedAnswer": {"@type": "Answer", "text": "The input may contain characters outside the Base64 alphabet or have incorrect padding. Remove spaces and any prefix such as data:image/png;base64, before decoding."}}, {"@type": "Question", "name": "Are files uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Encoding and decoding happen locally in your browser."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>Base64 Encoder/Decoder</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">Base64 Encoder & Decoder</h1>
+<p class="text-slate-600 text-sm mt-1">Encode and decode text, and convert images to Base64 data URLs.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<textarea id="b64-in" aria-label="Input" class="w-full h-32 border border-slate-300 p-3 font-mono text-sm rounded bg-slate-50" placeholder="Enter text to encode, or Base64 to decode"></textarea>
+<div class="flex flex-wrap gap-3">
+<button onclick="encText()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded font-semibold text-sm">Encode text</button>
+<button onclick="decText()" class="bg-slate-700 hover:bg-slate-800 text-white px-5 py-2.5 rounded font-semibold text-sm">Decode to text</button>
+<label class="border border-slate-300 px-5 py-2.5 rounded font-semibold text-sm cursor-pointer">Encode an image<input type="file" id="f" accept="image/*" class="hidden" onchange="encImage()"></label>
+</div>
+<p id="b64-status" class="text-sm min-h-[1.25rem]" role="status"></p>
+<textarea id="b64-out" readonly aria-label="Output" class="w-full h-40 border border-slate-300 p-3 font-mono text-xs rounded bg-slate-100" placeholder="Result appears here"></textarea>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>Base64 is a way of representing binary data, such as text bytes or an image, using only letters, digits and a few symbols. This tool encodes text to Base64, decodes Base64 back into text and converts an image file into a Base64 data URL you can paste into HTML or CSS. Text is handled as UTF-8, so accented letters and emoji work correctly.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>To encode text, type or paste it into the box and click Encode text.</li><li>To decode, paste Base64 into the box and click Decode to text.</li><li>To embed an image, click Encode an image and choose a file. The output is a data URL starting with data:image.</li><li>Copy the result from the output box.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>What Base64 is used for:</strong> embedding small images in HTML or CSS, sending binary data in JSON or email, and storing credentials in HTTP Basic authentication headers.</p><p><strong>Base64 is not encryption.</strong> Anyone can decode it, so never use it to protect secrets.</p><p><strong>Size:</strong> Base64 output is about one third larger than the original data.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Is Base64 secure?</h3><p>No. It is an encoding, not encryption. It offers no protection for sensitive data.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Does it support Unicode?</h3><p>Yes. Text is converted with UTF-8 before encoding and after decoding.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Why does decoding fail?</h3><p>The input may contain characters outside the Base64 alphabet or have incorrect padding. Remove spaces and any prefix such as data:image/png;base64, before decoding.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Are files uploaded?</h3><p>No. Encoding and decoding happen locally in your browser.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/json-formatter/">JSON Formatter & Validator</a></li><li><a class="text-blue-600 underline" href="/html-encoder/">HTML Entity Encoder & Decoder</a></li><li><a class="text-blue-600 underline" href="/image-converter/">Image Format Converter</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+function msg(t,ok){const s=document.getElementById('b64-status');s.textContent=t;s.className='text-sm min-h-[1.25rem] '+(ok?'text-emerald-600':'text-rose-600');}
+function encText(){const v=document.getElementById('b64-in').value;const bytes=new TextEncoder().encode(v);let bin='';bytes.forEach(b=>bin+=String.fromCharCode(b));
+document.getElementById('b64-out').value=btoa(bin);msg('Encoded as UTF-8 Base64.',true);}
+function decText(){try{const bin=atob(document.getElementById('b64-in').value.trim());const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));
+document.getElementById('b64-out').value=new TextDecoder().decode(bytes);msg('Decoded successfully.',true);}catch(e){msg('That does not look like valid Base64.',false);}}
+function encImage(){const file=document.getElementById('f').files[0];if(!file)return;const r=new FileReader();
+r.onload=e=>{document.getElementById('b64-out').value=e.target.result;msg('Image encoded as a data URL.',true);};r.readAsDataURL(file);}
+</script>
+</body></html>

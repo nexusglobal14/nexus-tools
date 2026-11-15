@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Compressor &amp; Resizer - Reduce JPG, PNG and WebP Size Online | Nexus Tools Hub</title>
+<meta name="description" content="Compress and resize images in your browser. Reduce JPG, PNG and WebP file size with adjustable quality and optional max width. Nothing is uploaded.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/image-compressor/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="Image Compressor &amp; Resizer - Reduce JPG, PNG and WebP Size Online | Nexus Tools Hub"><meta property="og:description" content="Compress and resize images in your browser. Reduce JPG, PNG and WebP file size with adjustable quality and optional max width. Nothing is uploaded."><meta property="og:url" content="https://tools.nexusglobalit.org/image-compressor/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Image Compressor & Resizer", "url": "https://tools.nexusglobalit.org/image-compressor/", "description": "Compress and resize images in your browser. Reduce JPG, PNG and WebP file size with adjustable quality and optional max width. Nothing is uploaded.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Image Compressor", "item": "https://tools.nexusglobalit.org/image-compressor/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are my images uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Compression uses your browser's canvas and runs locally, so your images never leave your device."}}, {"@type": "Question", "name": "Why did my PNG become a JPG?", "acceptedAnswer": {"@type": "Answer", "text": "The tool outputs JPEG, which compresses photos much better. PNG transparency is replaced by a white background."}}, {"@type": "Question", "name": "Will compression reduce image quality?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, JPEG compression is lossy. Moderate settings are usually hard to notice, but you can compare sizes and choose what you accept."}}, {"@type": "Question", "name": "Can the compressed file be larger than the original?", "acceptedAnswer": {"@type": "Answer", "text": "It can happen with images that were already heavily compressed. In that case keep the original or lower the quality or width."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>Image Compressor</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">Image Compressor & Resizer</h1>
+<p class="text-slate-600 text-sm mt-1">Reduce image file size with adjustable quality and optional resizing.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<div class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:border-blue-500 transition cursor-pointer" onclick="document.getElementById('image-file').click()">
+<input type="file" id="image-file" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+<i class="fa-solid fa-cloud-arrow-up text-4xl text-blue-600 mb-3"></i>
+<p class="text-sm font-semibold text-slate-800">Click to choose an image</p><p class="text-xs text-slate-500 mt-1">Supports JPG, PNG and WebP</p></div>
+<div id="controls-section" class="hidden space-y-5 pt-4 border-t border-slate-100">
+<div><label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Quality: <span id="quality-val" class="text-blue-600 font-bold">80</span>%</label>
+<input type="range" id="img-quality" min="10" max="100" value="80" oninput="document.getElementById('quality-val').textContent=this.value;processImage()" class="w-full accent-blue-600"></div>
+<div><label for="max-w" class="block text-xs font-semibold text-slate-700 uppercase mb-2">Max width in pixels (optional)</label>
+<input type="number" id="max-w" min="16" placeholder="Leave empty to keep original size" oninput="processImage()" class="w-full border border-slate-300 rounded p-2 text-sm"></div>
+<div class="grid grid-cols-2 gap-4 text-xs text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-200">
+<div>Original: <span id="orig-size" class="font-bold text-slate-800">0 KB</span></div>
+<div>Compressed: <span id="comp-size" class="font-bold text-emerald-600">0 KB</span></div></div>
+<button onclick="downloadCompressedImage()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl text-sm"><i class="fa-solid fa-download mr-2"></i>Download compressed JPG</button></div>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>This image compressor reduces the file size of photos and graphics directly in your browser. Choose an image, set the quality with the slider and, if you want, a maximum width. The tool shows the original and compressed sizes side by side, so you can find the best balance between size and appearance before downloading.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Click the upload area and choose a JPG, PNG or WebP image.</li><li>Adjust the quality slider. Lower quality gives a smaller file.</li><li>Optionally enter a max width in pixels to scale a large image down.</li><li>Compare the sizes, then click Download compressed JPG.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>Output format:</strong> the result is always a JPEG file. Transparent areas in PNG or WebP images become white because JPEG does not support transparency.</p><p><strong>Choosing a quality:</strong> 70 to 85 percent usually keeps photos looking good while cutting the size substantially. Very low values show visible blocky artifacts.</p><p><strong>Resizing:</strong> for web use, photos rarely need to be wider than 1600 to 2000 pixels. Reducing dimensions often saves more space than lowering quality alone.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Are my images uploaded?</h3><p>No. Compression uses your browser's canvas and runs locally, so your images never leave your device.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Why did my PNG become a JPG?</h3><p>The tool outputs JPEG, which compresses photos much better. PNG transparency is replaced by a white background.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Will compression reduce image quality?</h3><p>Yes, JPEG compression is lossy. Moderate settings are usually hard to notice, but you can compare sizes and choose what you accept.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Can the compressed file be larger than the original?</h3><p>It can happen with images that were already heavily compressed. In that case keep the original or lower the quality or width.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/image-converter/">Image Format Converter</a></li><li><a class="text-blue-600 underline" href="/image-to-pdf/">Image to PDF Converter</a></li><li><a class="text-blue-600 underline" href="/pdf-to-image/">PDF to Image Converter</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+let originalImage=null,compressedDataUrl='';
+function handleImageUpload(e){const file=e.target.files[0];if(!file)return;
+document.getElementById('orig-size').textContent=(file.size/1024).toFixed(1)+' KB';
+const reader=new FileReader();reader.onload=ev=>{originalImage=new Image();originalImage.onload=()=>{document.getElementById('controls-section').classList.remove('hidden');processImage();};originalImage.src=ev.target.result;};reader.readAsDataURL(file);}
+function processImage(){if(!originalImage)return;const q=parseInt(document.getElementById('img-quality').value)/100;
+let w=originalImage.width,h=originalImage.height;const mw=parseInt(document.getElementById('max-w').value);
+if(mw>0&&w>mw){h=Math.round(h*mw/w);w=mw;}
+const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');
+ctx.fillStyle='#ffffff';ctx.fillRect(0,0,w,h);ctx.drawImage(originalImage,0,0,w,h);
+compressedDataUrl=c.toDataURL('image/jpeg',q);const b=compressedDataUrl.split(',')[1];
+document.getElementById('comp-size').textContent=((b.length*3/4)/1024).toFixed(1)+' KB';}
+function downloadCompressedImage(){if(!compressedDataUrl)return;const a=document.createElement('a');a.download='compressed-nexus.jpg';a.href=compressedDataUrl;a.click();}
+</script>
+</body></html>

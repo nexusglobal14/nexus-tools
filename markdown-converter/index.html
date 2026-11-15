@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markdown to HTML Converter - Live Preview and HTML Output | Nexus Tools Hub</title>
+<meta name="description" content="Convert Markdown to HTML with a live preview and copy the generated HTML code. Free online Markdown converter that runs in your browser.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/markdown-converter/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="Markdown to HTML Converter - Live Preview and HTML Output | Nexus Tools Hub"><meta property="og:description" content="Convert Markdown to HTML with a live preview and copy the generated HTML code. Free online Markdown converter that runs in your browser."><meta property="og:url" content="https://tools.nexusglobalit.org/markdown-converter/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Markdown to HTML Converter", "url": "https://tools.nexusglobalit.org/markdown-converter/", "description": "Convert Markdown to HTML with a live preview and copy the generated HTML code. Free online Markdown converter that runs in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Markdown to HTML", "item": "https://tools.nexusglobalit.org/markdown-converter/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Markdown?", "acceptedAnswer": {"@type": "Answer", "text": "A plain-text format created for writing structured text that converts easily to HTML."}}, {"@type": "Question", "name": "Is the HTML ready for production?", "acceptedAnswer": {"@type": "Answer", "text": "It is clean standard HTML. For untrusted content, always sanitize it on your own site before publishing."}}, {"@type": "Question", "name": "Are tables and code blocks supported?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Tables and fenced code blocks with triple backticks are supported."}}, {"@type": "Question", "name": "Is my text uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Conversion runs in your browser."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>Markdown to HTML</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">Markdown to HTML Converter</h1>
+<p class="text-slate-600 text-sm mt-1">Write Markdown, see a live preview and copy the HTML.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<div class="grid md:grid-cols-2 gap-4">
+<div><label for="md" class="block text-xs font-semibold uppercase mb-1">Markdown</label><textarea id="md" class="w-full h-72 border border-slate-300 p-3 font-mono text-sm rounded bg-slate-50" oninput="conv()" placeholder="# Hello&#10;&#10;Write **Markdown** here."></textarea></div>
+<div><label class="block text-xs font-semibold uppercase mb-1">Preview</label><div id="out" class="w-full h-72 border border-slate-300 p-3 overflow-auto bg-white rounded prose-out text-sm"></div></div></div>
+<div><label for="html-out" class="block text-xs font-semibold uppercase mb-1">HTML code</label><textarea id="html-out" readonly class="w-full h-32 border border-slate-300 p-3 font-mono text-xs rounded bg-slate-100"></textarea></div>
+<button onclick="copyHtml()" class="border border-slate-300 px-5 py-2.5 rounded font-semibold text-sm">Copy HTML</button>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>Markdown is a lightweight way to write formatted text using plain characters such as # for headings and ** for bold. This converter turns Markdown into HTML as you type, shows a live preview and gives you the HTML code to copy into a website, email template or CMS.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Type or paste Markdown in the left box.</li><li>Check the rendered preview on the right.</li><li>Copy the HTML code with the Copy HTML button.</li><li>Paste it into your page or editor.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>Common syntax:</strong> # Heading, ## Subheading, **bold**, *italic*, [link text](https://example.com), - list item, 1. numbered item, and backticks for inline code.</p><p><strong>Safe preview:</strong> the preview is sanitized so scripts in your Markdown are not executed. The HTML code box shows the raw converted output.</p><p><strong>Flavor:</strong> conversion uses the marked library, which supports standard Markdown and common GitHub-style extras such as tables.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">What is Markdown?</h3><p>A plain-text format created for writing structured text that converts easily to HTML.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Is the HTML ready for production?</h3><p>It is clean standard HTML. For untrusted content, always sanitize it on your own site before publishing.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Are tables and code blocks supported?</h3><p>Yes. Tables and fenced code blocks with triple backticks are supported.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Is my text uploaded?</h3><p>No. Conversion runs in your browser.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/html-encoder/">HTML Entity Encoder & Decoder</a></li><li><a class="text-blue-600 underline" href="/word-counter/">Word Counter & Text Analyzer</a></li><li><a class="text-blue-600 underline" href="/css-minifier/">CSS Minifier</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+<script>
+function conv(){const h=marked.parse(document.getElementById('md').value);document.getElementById('html-out').value=h;
+document.getElementById('out').innerHTML=DOMPurify.sanitize(h);}
+function copyHtml(){const v=document.getElementById('html-out').value;if(v)navigator.clipboard.writeText(v);}
+</script>
+</body></html>

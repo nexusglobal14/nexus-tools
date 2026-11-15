@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text to Speech - Read Text Aloud with Your Browser's Voices | Nexus Tools Hub</title>
+<meta name="description" content="Convert text to spoken audio using the voices built into your browser. Choose a voice, speed and pitch. Free, private and no sign-up.">
+<link rel="canonical" href="https://tools.nexusglobalit.org/text-to-speech/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Tools Hub"><meta property="og:title" content="Text to Speech - Read Text Aloud with Your Browser's Voices | Nexus Tools Hub"><meta property="og:description" content="Convert text to spoken audio using the voices built into your browser. Choose a voice, speed and pitch. Free, private and no sign-up."><meta property="og:url" content="https://tools.nexusglobalit.org/text-to-speech/"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Text to Speech", "url": "https://tools.nexusglobalit.org/text-to-speech/", "description": "Convert text to spoken audio using the voices built into your browser. Choose a voice, speed and pitch. Free, private and no sign-up.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tools", "item": "https://tools.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Text to Speech", "item": "https://tools.nexusglobalit.org/text-to-speech/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it create an MP3 file?", "acceptedAnswer": {"@type": "Answer", "text": "No. It plays the speech live using your browser's Web Speech API. It does not export audio."}}, {"@type": "Question", "name": "Why is the voice list empty?", "acceptedAnswer": {"@type": "Answer", "text": "Some browsers load voices a moment after the page opens. Wait a second or reload. If it stays empty, your browser may not support speech synthesis."}}, {"@type": "Question", "name": "Is my text sent to a server?", "acceptedAnswer": {"@type": "Answer", "text": "With most browsers the voices run on your device. Some browsers may use online voices, which is controlled by the browser and not by this site."}}, {"@type": "Question", "name": "Can it read other languages?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if your device has a voice for that language."}}]}]</script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<nav class="border-b border-slate-200 bg-white fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="/" class="flex flex-col justify-center"><span class="text-xl font-bold tracking-tight text-slate-900 leading-none">Nexus <span class="text-blue-600">Tools Hub</span></span><span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-1">Information Technology</span></a>
+<div class="flex items-center space-x-5">
+<a href="/about/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">About</a>
+<a href="/privacy-policy/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Privacy</a>
+<a href="/contact/" class="hidden sm:inline-block text-xs font-semibold text-slate-600 hover:text-blue-600">Contact</a>
+<a href="https://www.nexusglobalit.org/" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded transition">Main Site</a></div></div></nav>
+<section class="pt-28 pb-6 px-6 bg-white border-b border-slate-200 text-center">
+<nav class="text-xs text-slate-500 mb-2" aria-label="Breadcrumb"><a class="text-blue-600" href="/">Tools</a> &rsaquo; <span>Text to Speech</span></nav>
+<span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded">100% private &middot; runs in your browser</span>
+<h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">Text to Speech</h1>
+<p class="text-slate-600 text-sm mt-1">Listen to your text using your device's built-in voices.</p></section>
+<main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full space-y-8">
+<div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-sm space-y-5">
+<textarea id="txt" aria-label="Text to speak" class="w-full h-36 border border-slate-300 p-3 rounded text-sm bg-slate-50" placeholder="Enter text to speak..."></textarea>
+<div class="grid sm:grid-cols-3 gap-4 text-sm">
+<div><label for="voice" class="block font-semibold mb-1">Voice</label><select id="voice" class="w-full border border-slate-300 rounded p-2"></select></div>
+<div><label for="rate" class="block font-semibold mb-1">Speed: <span id="rate-v">1</span>x</label><input type="range" id="rate" min="0.5" max="2" step="0.1" value="1" class="w-full accent-blue-600" oninput="document.getElementById('rate-v').textContent=this.value"></div>
+<div><label for="pitch" class="block font-semibold mb-1">Pitch: <span id="pitch-v">1</span></label><input type="range" id="pitch" min="0.5" max="2" step="0.1" value="1" class="w-full accent-blue-600" oninput="document.getElementById('pitch-v').textContent=this.value"></div></div>
+<div class="flex gap-3"><button onclick="speak()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-sm font-semibold">Play audio</button>
+<button onclick="speechSynthesis.cancel()" class="border border-slate-300 px-6 rounded-xl text-sm font-semibold">Stop</button></div>
+<p id="tts-status" class="text-sm text-slate-600" role="status"></p>
+</div>
+<article class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl text-sm text-slate-600 leading-relaxed space-y-3">
+<h2 class="text-xl font-bold text-slate-900">About this tool</h2>
+<p>This tool reads your text aloud using the speech voices already installed on your device or browser. Type or paste text, choose a voice, set the speed and pitch, and press Play. It is handy for proofreading, accessibility, language practice or listening to a draft instead of reading it.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">How to use it</h2>
+<ol class="list-decimal pl-5 space-y-1"><li>Enter or paste the text you want to hear.</li><li>Choose a voice from the list. Available voices depend on your device and browser.</li><li>Adjust speed and pitch if you like.</li><li>Click Play audio. Click Stop to end playback.</li></ol>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Good to know</h2>
+<p><strong>Voices and languages:</strong> the list comes from your operating system and browser, so it differs between Windows, macOS, Android and iOS. Install extra voices in your system settings to get more languages.</p><p><strong>Audio files:</strong> this tool plays speech through your speakers. It does not create a downloadable audio file.</p><p><strong>Proofreading tip:</strong> hearing your text read aloud often reveals missing words and awkward sentences that are easy to miss when reading silently.</p>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Frequently asked questions</h2>
+<div><h3 class="font-semibold text-slate-900 mt-3">Does it create an MP3 file?</h3><p>No. It plays the speech live using your browser's Web Speech API. It does not export audio.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Why is the voice list empty?</h3><p>Some browsers load voices a moment after the page opens. Wait a second or reload. If it stays empty, your browser may not support speech synthesis.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Is my text sent to a server?</h3><p>With most browsers the voices run on your device. Some browsers may use online voices, which is controlled by the browser and not by this site.</p></div><div><h3 class="font-semibold text-slate-900 mt-3">Can it read other languages?</h3><p>Yes, if your device has a voice for that language.</p></div>
+<h2 class="text-xl font-bold text-slate-900 pt-3">Related tools</h2>
+<ul class="list-disc pl-5 space-y-1"><li><a class="text-blue-600 underline" href="/word-counter/">Word Counter & Text Analyzer</a></li><li><a class="text-blue-600 underline" href="/markdown-converter/">Markdown to HTML Converter</a></li><li><a class="text-blue-600 underline" href="/html-encoder/">HTML Entity Encoder & Decoder</a></li></ul>
+<p class="text-xs text-slate-500 pt-3">This tool runs entirely in your browser. What you enter is not uploaded to our servers. See our <a class="underline" href="/privacy-policy/">privacy policy</a>.</p>
+</article>
+</main>
+<footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 bg-[#f2f2f2]">
+<div class="max-w-7xl mx-auto px-6 space-y-3">
+<nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-semibold text-slate-700">
+<a href="/" class="hover:underline">All Tools</a><a href="/about/" class="hover:underline">About</a><a href="/privacy-policy/" class="hover:underline">Privacy Policy</a><a href="/contact/" class="hover:underline">Contact</a><a href="https://calc.nexusglobalit.org/" class="hover:underline">Calculators</a><a href="https://www.nexusglobalit.org/" class="hover:underline">Nexus Global</a></nav>
+<p>&copy; 2026 Nexus Global Information Technology. All rights reserved.</p></div></footer>
+
+<script>
+function loadVoices(){const sel=document.getElementById('voice');if(!('speechSynthesis' in window)){document.getElementById('tts-status').textContent='Your browser does not support speech synthesis.';return;}
+const v=speechSynthesis.getVoices();sel.textContent='';v.forEach((x,i)=>{const o=document.createElement('option');o.value=i;o.textContent=x.name+' ('+x.lang+')';sel.appendChild(o);});}
+if('speechSynthesis' in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices;}
+function speak(){const t=document.getElementById('txt').value;if(!t.trim()||!('speechSynthesis' in window))return;speechSynthesis.cancel();
+const u=new SpeechSynthesisUtterance(t);const v=speechSynthesis.getVoices()[document.getElementById('voice').value];if(v)u.voice=v;
+u.rate=parseFloat(document.getElementById('rate').value);u.pitch=parseFloat(document.getElementById('pitch').value);speechSynthesis.speak(u);}
+</script>
+</body></html>
